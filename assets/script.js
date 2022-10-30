@@ -12,15 +12,12 @@
 // WHEN I refresh the page
 // THEN the saved events persist
 
-//var = planner ();
-
 
 //Define Variables ====================================================================
 var saveButton = $(".saveBtn");
 
 //Define Functions ====================================================================
 //Today's date for header
-
 $("#currentDay").text(moment().format('dddd MMMM Do YYYY'));
 
 // adjusting color for past time slots
@@ -31,8 +28,8 @@ function timeOfDay() {
     //loop over each time slot to color accordingly
     $(".time-block").each(function () {
         var timeSlotHour = parseInt($(this).attr("id"));
-    //if hour on time slot is less than current hour, it is class = past
-    if (timeSlotHour < currentHour) {
+        //if hour on time slot is less than current hour, it is class = past
+        if (timeSlotHour < currentHour) {
             $(this).addClass("past");
         } else if (timeSlotHour === currentHour) {
             $(this).addClass("current");
@@ -42,14 +39,25 @@ function timeOfDay() {
     })
 };
 
-function savePlan () {
-   $(".hour").each(function() {
-    var currentHour = $(this).text();
-    var userPlan = localStorage.getItem(currentHour);
+//event listener for save button click. Sets time and value to local storage
+saveButton.on("click", function () {
+    var timeSlot = $(this).siblings(".hour").text();
+    var userPlan = $(this).siblings(".description").val();
 
+    localStorage.setItem(timeSlot, userPlan);
+});
 
-   });
+//fucntion to save plans across page reloads NOT FUNCTIONING
+function savePlan() {
+    $(".hour").each(function () {
+        var currentHour = $(this).text();
+        var userPlan = localStorage.getItem(currentHour);
+        if (userPlan !== null) {
+            $(this).siblings(".description").val();
+        }
+    });
 }
+
 
 timeOfDay();
 savePlan();
