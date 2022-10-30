@@ -11,3 +11,14 @@
 // THEN the text for that event is saved in local storage
 // WHEN I refresh the page
 // THEN the saved events persist
+
+//var = planner ();
+
+
+//Define Variables ====================================================================
+
+
+//Define Functions ====================================================================
+//Today's date for header
+
+$("#currentDay").text(moment().format('dddd MMMM Do YYYY'));

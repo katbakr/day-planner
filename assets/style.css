@@ -64,7 +64,10 @@ body {
     background-color: #06aed5;
     color: white;
   }
-  
+  .saveBtn:hover {
+    background-color: #55b2c7;
+  }
+
   .saveBtn i:hover {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
