@@ -1,3 +1,4 @@
+//Project Criteria ========================================================================================================================
 // GIVEN I am using a daily planner to create a schedule
 // WHEN I open the planner
 // THEN the current day is displayed at the top of the calendar
@@ -13,14 +14,14 @@
 // THEN the saved events persist
 
 
-//Define Variables ====================================================================
+//Define Variables =======================================================================================================================
 var saveButton = $(".saveBtn");
 
-//Define Functions ====================================================================
+//Define Functions =======================================================================================================================
 //Today's date for header
 $("#currentDay").text(moment().format('dddd MMMM Do YYYY'));
 
-// adjusting color for past time slots
+// adjusting color for time slots=========================================================================================================
 
 function timeOfDay() {
     //variable for current hour
@@ -39,15 +40,15 @@ function timeOfDay() {
     })
 };
 
-//event listener for save button click. Sets time and value to local storage
+//event listener for save button click. Sets time and value to local storage==========================================================
 saveButton.on("click", function () {
     var timeSlot = $(this).siblings(".hour").text();
     var userPlan = $(this).siblings(".description").val();
-
+    //set text/value to local storage FUNCTIONING
     localStorage.setItem(timeSlot, userPlan);
 });
 
-//fucntion to save plans across page reloads NOT FUNCTIONING
+//function to save plans across page reloads NOT FUNCTIONING==========================================================================
 function savePlan() {
     $(".hour").each(function () {
         var currentHour = $(this).text();
@@ -58,6 +59,6 @@ function savePlan() {
     });
 }
 
-
+//Calling functions =================================================================================================================
 timeOfDay();
 savePlan();
