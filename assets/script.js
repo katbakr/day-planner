@@ -42,23 +42,22 @@ function timeOfDay() {
 
 //event listener for save button click. Sets time and value to local storage==========================================================
 saveButton.on("click", function () {
-    var timeSlot = $(this).siblings(".hour").text();
     var userPlan = $(this).siblings(".description").val();
+    var timeSlot = $(this).parent().attr("id");
     //set text/value to local storage FUNCTIONING
     localStorage.setItem(timeSlot, userPlan);
 });
 
 //function to save plans across page reloads NOT FUNCTIONING==========================================================================
-function savePlan() {
-    $(".hour").each(function () {
-        var currentHour = $(this).text();
-        var userPlan = localStorage.getItem(currentHour);
-        if (userPlan !== null) {
-            $(this).siblings(".description").val();
-        }
-    });
-}
+$("#9 .description").val(localStorage.getItem("9"));
+$("#9 .description").val(localStorage.getItem("9"));
+$("#9 .description").val(localStorage.getItem("9"));
+$("#9 .description").val(localStorage.getItem("9"));
+$("#9 .description").val(localStorage.getItem("9"));
+$("#9 .description").val(localStorage.getItem("9"));
+$("#9 .description").val(localStorage.getItem("9"));
+$("#9 .description").val(localStorage.getItem("9"));
+$("#9 .description").val(localStorage.getItem("9"));
 
 //Calling functions =================================================================================================================
 timeOfDay();
-savePlan();
