@@ -16,7 +16,7 @@
 
 
 //Define Variables ====================================================================
-
+var saveButton = $(".saveBtn");
 
 //Define Functions ====================================================================
 //Today's date for header
@@ -25,25 +25,25 @@ $("#currentDay").text(moment().format('dddd MMMM Do YYYY'));
 
 // adjusting color for past time slots
 
-//get current hour
-
-//
-
 function timeOfDay() {
+    //variable for current hour
     var currentHour = moment().hour();
-console.log(currentHour);
-
+    //loop over each time slot to color accordingly
     $(".time-block").each(function () {
         var timeSlotHour = parseInt($(this).attr("id"));
-    
-
-    if (timeSlotHour > currentHour) {
-            $(this).addClass("future");
+    //if hour on time slot is less than current hour, it is class = past
+    if (timeSlotHour < currentHour) {
+            $(this).addClass("past");
         } else if (timeSlotHour === currentHour) {
             $(this).addClass("current");
         } else {
-            $(this).addClass("past");
+            $(this).addClass("future");
         }
     })
 };
 
+function addActivity () {
+    
+}
+
+timeOfDay();
