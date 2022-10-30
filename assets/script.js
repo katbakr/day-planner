@@ -42,8 +42,14 @@ function timeOfDay() {
     })
 };
 
-function addActivity () {
-    
+function savePlan () {
+   $(".hour").each(function() {
+    var currentHour = $(this).text();
+    var userPlan = localStorage.getItem(currentHour);
+
+
+   });
 }
 
 timeOfDay();
+savePlan();
