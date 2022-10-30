@@ -22,3 +22,28 @@
 //Today's date for header
 
 $("#currentDay").text(moment().format('dddd MMMM Do YYYY'));
+
+// adjusting color for past time slots
+
+//get current hour
+
+//
+
+function timeOfDay() {
+    var currentHour = moment().hour();
+console.log(currentHour);
+
+    $(".time-block").each(function () {
+        var timeSlotHour = parseInt($(this).attr("id"));
+    
+
+    if (timeSlotHour > currentHour) {
+            $(this).addClass("future");
+        } else if (timeSlotHour === currentHour) {
+            $(this).addClass("current");
+        } else {
+            $(this).addClass("past");
+        }
+    })
+};
+
